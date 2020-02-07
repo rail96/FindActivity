@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using FindActivity.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace FindActivity.Controllers
 {
@@ -18,9 +19,10 @@ namespace FindActivity.Controllers
             _logger = logger;
         }
 
+        [Authorize]
         public IActionResult Index()
         {
-            return View();
+            return Content(User.Identity.Name);
         }
 
         public IActionResult Privacy()
