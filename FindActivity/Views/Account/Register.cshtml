@@ -21,6 +21,21 @@
             <span asp-validation-for="ConfirmPassword" />
         </div>
         <div>
+            <label asp-for="Name">Имя</label><br />
+            <input asp-for="Name" />
+            <span asp-validation-for="Name" />
+        </div>
+        <div>
+            <label asp-for="LastName">Фамилия</label><br />
+            <input asp-for="LastName" />
+            <span asp-validation-for="LastName" />
+        </div>
+        <div>
+            <label asp-for="Age">Возраст</label><br />
+            <input asp-for="Age" />
+            <span asp-validation-for="Age" />
+        </div>
+        <div>
             <input type="submit" value="Регистрация" />
         </div>
     </div>
