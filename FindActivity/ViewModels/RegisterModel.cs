@@ -18,5 +18,9 @@ namespace FindActivity.ViewModels
         [DataType(DataType.Password)]
         [Compare("Password", ErrorMessage = "Пароль введен неверно")]
         public string ConfirmPassword { get; set; }
+
+        public string Name { get; set; }
+        public string LastName { get; set; }
+        public int Age { get; set; }
     }
 }
