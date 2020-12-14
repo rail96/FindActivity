@@ -37,7 +37,8 @@ namespace FindActivity.Controllers
 
                     return RedirectToAction("Index", "Home");
                 }
-                ModelState.AddModelError("", "Некорректные логин и(или) пароль");
+                ModelState.AddModelError(string.Empty, "Некорректные логин и(или) пароль");
+                return View(model);
             }
             return View(model);
         }
@@ -56,7 +57,7 @@ namespace FindActivity.Controllers
                 if (user == null)
                 {
                     // добавляем пользователя в бд
-                    db.Users.Add(new User { Email = model.Email, Password = model.Password, Name = model.Name, LastName = model.LastName,  Age = model.Age});
+                    db.Users.Add(new User { Email = model.Email, Password = model.Password, Name = model.Name, LastName = model.LastName, Age = model.Age });
                     await db.SaveChangesAsync();
 
                     await Authenticate(model.Email); // аутентификация
@@ -64,7 +65,9 @@ namespace FindActivity.Controllers
                     return RedirectToAction("Index", "Home");
                 }
                 else
+                {
                     ModelState.AddModelError("", "Некорректные логин и(или) пароль");
+                }
             }
             return View(model);
         }

@@ -1,8 +1,13 @@
-﻿@{
+﻿@using FindActivity.Models
+
+@{
     ViewData["Title"] = "Home Page";
 }
 
+@{ 
+    var data = ViewBag.Message;
+}
 <div class="text-center">
-    <h1 class="display-2">Welcome!</h1>
+    <h1 class="display-2">Welcome, @data.Name!</h1>
     <h2 class="display-6">Here you can find some activity or someone to hang with</h2>
 </div>

@@ -22,7 +22,12 @@ namespace FindActivity.Controllers
         [Authorize]
         public IActionResult Index()
         {
-            return Content(User.Identity.Name);
+            if (User.Identity.IsAuthenticated)
+            {
+                ViewBag.Message = User.Identity;
+                return View("Index");
+            }
+            return Content("не аутентифицирован");
         }
 
         public IActionResult Privacy()
