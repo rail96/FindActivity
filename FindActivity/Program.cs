@@ -31,6 +31,17 @@ namespace FindActivity
                     var logger = services.GetRequiredService<ILogger<Program>>();
                     logger.LogError(ex, "An error occurred seeding the DB.");
                 }
+                try
+                {
+                    var context = services.GetRequiredService<EventContext>();
+                    SampleData.Initialize(context);
+                }
+                catch (Exception ex)
+                {
+                    var logger = services.GetRequiredService<ILogger<Program>>();
+                    logger.LogError(ex, "An error occurred seeding the DB.");
+                }
+
             }
             host.Run();
         }

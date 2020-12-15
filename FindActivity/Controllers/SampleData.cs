@@ -8,6 +8,20 @@ namespace FindActivity.Controllers
 {
     public class SampleData
     {
+        public static void Initialize(EventContext context)
+        {           
+                context.Events.Add(
+                    new Event
+                    {
+                        Id = 001,
+                        Name = "test@gmail.com",
+                        Type = "123",
+                        Description = "Vasya",
+                        Date = DateTime.Today
+                    }
+                    );
+                context.SaveChanges();
+        }
         public static void Initialize(UserContext context)
         {
             if (!context.Users.Any())
@@ -44,5 +58,7 @@ namespace FindActivity.Controllers
                 context.SaveChanges();
             }
         }
+        
+
     }
 }
