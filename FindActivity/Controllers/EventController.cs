@@ -30,10 +30,12 @@ namespace FindActivity.Controllers
         {
             if (ModelState.IsValid)
             {
-                Event even = await db.Events.FirstOrDefaultAsync(u => u.Id == model.Id);
+                Event even = await db.Events.FirstOrDefaultAsync(u => u.Name == model.Name);
                 if (even == null)
                 {
-                    db.Events.Add(new Event { Id = model.Id, Name = model.Name, Type = model.Type, Description = model.Description, Date = model.Date });
+                    Random rand = new Random();
+                    int i = rand.Next(1, 1000);
+                    db.Events.Add(new Event {Id = i*5, Name = model.Name, Type = model.Type, Description = model.Description, Date = model.Date });
                     await db.SaveChangesAsync();
 
                     return View("Index", "Event");
