@@ -8,10 +8,10 @@ namespace FindActivity.Controllers
 {
     public class SampleData
     {
-        public static void Initialize(EventContext context)
+        public static void Initialize(EventsContext context)
         {           
                 context.Events.Add(
-                    new Event
+                    new Events
                     {
                         Id = 001,
                         Name = "test@gmail.com",

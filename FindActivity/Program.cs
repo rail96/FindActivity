@@ -33,7 +33,7 @@ namespace FindActivity
                 }
                 try
                 {
-                    var context = services.GetRequiredService<EventContext>();
+                    var context = services.GetRequiredService<EventsContext>();
                     SampleData.Initialize(context);
                 }
                 catch (Exception ex)
