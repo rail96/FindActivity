@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace FindActivity.Models
 {
-    public class Event
+    public class Events
     {
         public int Id { get; set; }
         public string Name { get; set; }

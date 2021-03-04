@@ -11,10 +11,10 @@ using Microsoft.EntityFrameworkCore;
 
 namespace FindActivity.Controllers
 {
-    public class EventController : Controller
+    public class EventsController : Controller
     {
-        private EventContext db;
-        public EventController(EventContext context)
+        private EventsContext db;
+        public EventsController(EventsContext context)
         {
             db = context;
         }
@@ -30,15 +30,15 @@ namespace FindActivity.Controllers
         {
             if (ModelState.IsValid)
             {
-                Event even = await db.Events.FirstOrDefaultAsync(u => u.Name == model.Name);
+                Events even = await db.Events.FirstOrDefaultAsync(u => u.Name == model.Name);
                 if (even == null)
                 {
                     Random rand = new Random();
                     int i = rand.Next(1, 1000);
-                    db.Events.Add(new Event {Id = i*5, Name = model.Name, Type = model.Type, Description = model.Description, Date = model.Date });
+                    db.Events.Add(new Events {Id = i*5, Name = model.Name, Type = model.Type, Description = model.Description, Date = model.Date });
                     await db.SaveChangesAsync();
 
-                    return View("Index", "Event");
+                    return View("Index", "Events");
                 }
                 else
                 {
@@ -47,6 +47,13 @@ namespace FindActivity.Controllers
                  return View(model);
             }
             return View(model);
+        }
+
+        [HttpGet]
+        public IActionResult GetEvents()
+        {
+            List<Events> eventsList = db.Events.ToList();
+            return View(eventsList);
         }
     }
 }

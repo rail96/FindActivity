@@ -6,12 +6,12 @@ using Microsoft.EntityFrameworkCore;
 
 namespace FindActivity.Models
 {
-    public class EventContext : DbContext
+    public class EventsContext : DbContext
     {
-        public EventContext(DbContextOptions<EventContext> options)
+        public EventsContext(DbContextOptions<EventsContext> options)
             : base(options)
         {
         }
-        public DbSet<Event> Events { get; set; }
+        public DbSet<Events> Events { get; set; }
     }
 }

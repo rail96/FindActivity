@@ -27,7 +27,7 @@ namespace FindActivity
         {
             string connection = Configuration.GetConnectionString("DefaultConnection");
             services.AddDbContext<UserContext>(options => options.UseSqlServer(connection));
-            services.AddDbContext<EventContext>(options => options.UseSqlServer(connection));
+            services.AddDbContext<EventsContext>(options => options.UseSqlServer(connection));
 
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
                 .AddCookie(options => //CookieAuthenticationOptions
