@@ -52,8 +52,8 @@ namespace FindActivity.Controllers
         [HttpGet]
         public IActionResult GetEvents()
         {
-            List<Events> eventslist = db.Events.ToList();
-            return View(eventslist);
+            List<Events> eventsList = db.Events.ToList();
+            return View(eventsList);
         }
     }
 }
